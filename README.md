@@ -26,8 +26,7 @@ following a consistent structure:
 
 - **`mac_<architecture>.sv`**: The main SystemVerilog that defines the generic MAC architecture's logic.
 - **`assertions/`**: (Optional) Some architecture have assertion binding files for verification during testbenches and powerbenches.
-- **`batch/`**: Contains the different parameterized or pre-built instanciations for each architecture, varying the level of scalability into a 
-- **`batch/`**: Contains the parameterized or pre-configured architecture instances, varying the level of scalability. Implements a `top_mac_<architecture>` module that includes input registers, mode and configuration signals, and shareable sequencing logic, synthesized but excluded from power and area analysis.
+- **`batch/`**: Contains the different parameterized or pre-built instanciations for each architecture, varying the level of scalability. Implements a `top_mac_<architecture>` module that includes input registers, mode and configuration signals, and shareable sequencing logic, synthesized but excluded from power and area analysis.
 - **`constraints/`**: Timing constraint files for each MAC instance. For each dynamic precision mode, unused registers and known static signals are declared to prevent STA from unnecessarily optimizing.
 - **`pb/`**: Contains powerbench files used for post-synthesis simulation and power estimation for each MAC instance. The gate-level netlist is simulated with precision mode, clock frequency, stimuli and VCD files set by external parameters.
 - **`tb_mac_<architecture>.sv`**: (Unused) Testbench manually set for debugging purposes, not used by the DSE framework.
@@ -43,14 +42,14 @@ MAC architectures
 The following table maps the architecture names used in the paper to the
 corresponding folder names in this repository:
 
-| Paper architecture name                                  | Repository folder name |
-|----------------------------------------------------------|------------------------|
-| Data-gated conventional                                  | `mac_conventional`     |
-| 1D Divide-and-Conquer SA (D&C SA, DNPU [13])             | `mac_dnc`              |
-| 1D Divide-and-Conquer ST (D&C ST)                        | `mac_bfusion1d`        |
-| 2D Divide-and-Conquer SA (D&C SA)                        | `mac_bitseparation`    |
-| 2D Divide-and-Conquer ST (D&C ST, BitFusion [14])        | `mac_bfusion`          |
-| Subword-Parallel SA (SWP SA, DVAFS [15])                 | `mac_multiplex`        |
-| Subword-Parallel ST (SWP ST, Sum-Together [16])          | `mac_st`               |
-| 1D Bit/Multibit serial (UNPU [17], Multibit serial [18]) | `mac_serial`           |
-| 2D Bit/Multibit serial (LOOM [19])                       | `mac_serial2d`         |
+| Paper architecture name                                           | Repository folder name |
+|-------------------------------------------------------------------|------------------------|
+| Data-gated conventional                                           | `mac_conventional`     |
+| 1D Divide-and-Conquer SA (D&C SA, known as DNPU [13])             | `mac_dnc`              |
+| 1D Divide-and-Conquer ST (D&C ST)                                 | `mac_bfusion1d`        |
+| 2D Divide-and-Conquer SA (D&C SA)                                 | `mac_bitseparation`    |
+| 2D Divide-and-Conquer ST (D&C ST, known as BitFusion [14])        | `mac_bfusion`          |
+| Subword-Parallel SA (SWP SA, known as DVAFS [15])                 | `mac_multiplex`        |
+| Subword-Parallel ST (SWP ST, known as Sum-Together [16])          | `mac_st`               |
+| 1D Bit/Multibit serial (known as UNPU [17], Multibit serial [18]) | `mac_serial`           |
+| 2D Bit/Multibit serial (known as LOOM [19])                       | `mac_serial2d`         |
