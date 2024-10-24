@@ -30,16 +30,6 @@ my $CLK_MIN        = 0.15;
 my $CLK_MAX        = 1.25;
 my $CLK_STEP       = 0.05;
 
-# Design/script versions
-my $BATCH_VERSION  = "1.0";
-my $SDC_VERSION    = "2.0";   # 5 modes, 3 clocks
-my $ASSERT_VERSION = "1.0";
-my $RTL_VERSION    = "1.1";   # external clock gating
-my $TB_VERSION     = "1.0";
-my $PB_VERSION     = "1.0.1"; # clean-up
-my $SYN_VERSION    = "2.0";   # DVFS
-my $SIM_PB_VERSION = "2.0";   # DVFS
-
 # Other parameters
 my $TIMING_MARGIN  = 0.010;   # 0.010 ns as standard
 my $LIB_V          = "/scratch/camus/common/dkits/tcbn28hpmbwp35.v";
@@ -64,15 +54,15 @@ my $EXPORT_DIR  = "$SCRATCH_DIR/exports_$DESIGN".($NOTE ne "" ? "_$NOTE" : "");
 my $RESULT_FILE = "$MAIN_DIR/results/results_$DESIGN".($NOTE ne "" ? "_$NOTE" : "").".csv";
 
 # Script directories
-my $BATCH_DIR   = "$MAIN_DIR/$DESIGN/batch_$BATCH_VERSION";
-my $SDC_DIR     = "$MAIN_DIR/$DESIGN/constraints_$SDC_VERSION";
-my $ASSERT_DIR  = "$MAIN_DIR/$DESIGN/assertions_$ASSERT_VERSION";
+my $BATCH_DIR   = "$MAIN_DIR/$DESIGN/batch";
+my $SDC_DIR     = "$MAIN_DIR/$DESIGN/constraints";
+my $ASSERT_DIR  = "$MAIN_DIR/$DESIGN/assertions";
 
 # Script files
-my $RTL_FILE    = "$MAIN_DIR/$DESIGN/${DESIGN}_$RTL_VERSION.sv";
-my $PB_FILE     = "$MAIN_DIR/$DESIGN/pb_${DESIGN}_$PB_VERSION.sv";
-my $SYN_FILE    = "$MAIN_DIR/$DESIGN/syn_${DESIGN}_$SYN_VERSION.tcl";
-my $SIM_PB_FILE = "$MAIN_DIR/$DESIGN/sim_pb_${DESIGN}_$SIM_PB_VERSION.tcl";
+my $RTL_FILE    = "$MAIN_DIR/$DESIGN/${DESIGN}.sv";
+my $PB_FILE     = "$MAIN_DIR/$DESIGN/pb_${DESIGN}.sv";
+my $SYN_FILE    = "$MAIN_DIR/$DESIGN/syn_${DESIGN}.tcl";
+my $SIM_PB_FILE = "$MAIN_DIR/$DESIGN/sim_pb_${DESIGN}.tcl";
 
 # Verbose mode
 my $log = 1;
